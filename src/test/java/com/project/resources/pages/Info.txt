@@ -1,1 +1,0 @@
-Het is handig om je webapplicatie op te splitsen in pages. Bedenk ook wat je BasePage moet hebben.
