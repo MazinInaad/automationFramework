@@ -1,2 +1,4 @@
 .idea/
 *.class
+screenshots/
+src/test/java/com/project
