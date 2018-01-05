@@ -14,6 +14,11 @@ Download&Install:
 
 ## Setup
 
+- Create Folder for test project and type in command: 
+  git clone https://mazin_inaad@bitbucket.org/mazin_inaad/automatedtests.git .
+  #NOTE: the '.' at the end insures that it is cloned into the current file and not to a subfile.
+
+
 - Start up IntelliJ
 
 
