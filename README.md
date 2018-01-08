@@ -5,8 +5,8 @@ cucumber-java-selenium
 
 Download&Install:
 
-- IntelliJ community edition
-- Chrome Plugin: CSS Selector Helper for Chrome
+- IntelliJ community edition https://www.jetbrains.com/idea/download/#section=windows
+- Chrome Plugin: CSS Selector Helper for Chrome https://chrome.google.com/webstore/detail/css-selector-helper-for-c/gddgceinofapfodcekopkjjelkbjodin
 - git (https://git-scm.com)
 - java jdk (not jre)
 
