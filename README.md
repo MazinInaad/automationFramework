@@ -18,6 +18,7 @@ Download&Install:
   #####NOTE: the ' .' at the end insures that it is cloned into the current file and not to a subfile.  
 - Start up IntelliJ
 - If it is your first IntelliJ project then in IntelliJ:
+    - Select 'Open' project and browse to the test project folder you just created and open the folder
     - open project structure (CTRL + Shift + Alt + S)
     - project tab
     - choose new in Project SDK section, select JDK and direct to your java/jdk folder
