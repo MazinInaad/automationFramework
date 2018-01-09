@@ -10,7 +10,7 @@ Download&Install:
 - git (https://git-scm.com)
 - java jdk (not jre)
 
-### Specific instructions for DVOM
+### Specific instructions for installing and setting up on DVOM Dev_account
 - Set proxy settings for git (git bash anywhere):
   
   git config --global http.proxy http://@proxy.org.om.local:8080
