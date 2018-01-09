@@ -10,6 +10,25 @@ Download&Install:
 - git (https://git-scm.com)
 - java jdk (not jre)
 
+### Specific instructions for DVOM
+- Set proxy settings for git (git bash anywhere):
+  
+  git config --global http.proxy http://@proxy.org.om.local:8080
+
+  no_proxy=.org.om.local
+  
+- Set proxy settings for IntelliJ: File, Settings, System Settings, HTTP Proxy.
+
+- When cloning a project from the OM bitbucket (at the end of the Setup instructions below) the following steps are necessary:
+  
+  git config --global http.sslVerify false
+  
+  git clone <OM Bitbucket repository> .
+  
+  git config --global --unset http.sslVerify
+  
+  git config http.sslVerify false
+
 ## Setup
 
 - Create Folder for test project and type in command (git bash here): <br> 
@@ -22,7 +41,7 @@ Download&Install:
     - open project structure (CTRL + Shift + Alt + S)
     - project tab
     - choose new in Project SDK section, select JDK and direct to your java/jdk folder
-    - install plugins: gherkin, cucumber
+    - install plugins (CTRL + Alt + S): gherkin, cucumber
 
   
 - Browse to the folder: <b>src/test/java/com/project</b>.
