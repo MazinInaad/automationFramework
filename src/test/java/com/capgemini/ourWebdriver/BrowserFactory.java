@@ -52,19 +52,29 @@ public class BrowserFactory {
     }
 
     public static String getBrowserType() {
+        return getBrowserProperty("browser.type");
+    }
+
+    public static String getEnvironment(){
+        return getBrowserProperty("environment");
+    }
+
+    private static String getBrowserProperty(String propertyToGet) {
         Properties prop = new Properties();
         InputStream input;
-        String browserType = null;
+        String propertyValue = null;
 
         try {
 
             input = new FileInputStream(System.getProperty("user.dir") +"\\browser.properties");
             prop.load(input);
-            browserType = prop.getProperty("browser.type");
+            propertyValue = prop.getProperty(propertyToGet);
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return browserType;
+        return propertyValue;
     }
+
+
 
 }
