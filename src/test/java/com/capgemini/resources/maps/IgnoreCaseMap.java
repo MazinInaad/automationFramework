@@ -43,4 +43,15 @@ public class IgnoreCaseMap<K, V> extends LinkedHashMap<K, V> {
         }
     }
 
+    public K getKeyNum(int itemNumber){
+        if (itemNumber <= super.size()){
+            itemNumber--;
+            Set<Map.Entry<K, V>> mapSet = super.entrySet();
+            return ((Map.Entry<K, V>) mapSet.toArray()[itemNumber]).getKey();
+        }
+        else {
+            return null;
+        }
+    }
+
 }
