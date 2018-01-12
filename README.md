@@ -10,16 +10,16 @@ Download&Install:
 - [git] (https://git-scm.com)
 - java jdk (not jre)
 
-### Specific instructions for DVOM
+### Specific instructions for installing and setting up on DVOM Dev_account
 - Set proxy settings for git (git bash anywhere):
-```
+```git
 git config --global http.proxy http://@proxy.org.om.local:8080
 no_proxy=.org.om.local
 ```  
 - Set proxy settings for IntelliJ: File, Settings, System Settings, HTTP Proxy.
 
 - When cloning a project from the OM bitbucket (at the end of the Setup instructions below) the following steps are necessary:
-```  
+```git  
 git config --global http.sslVerify false
 git clone <OM Bitbucket repository> .
 git config --global --unset http.sslVerify
@@ -28,7 +28,7 @@ git config http.sslVerify false
 
 ## Setup
 
-- Create Folder for test project and type in the following command in [git bash here][gitbash]. 
+- Create Folder for test project and type in the following command in [git bash here]. 
   **Please note:** Each account has a unique command since you have to give your username in the command.
   This command can also be found at the top of your bitbucket page.
   You now have the generic test automation framework.
@@ -44,8 +44,7 @@ git config http.sslVerify false
     - project tab
     - choose new in Project SDK section, select JDK and direct to your java/jdk folder
     - install plugins: gherkin, cucumber
-
-  
+- Create a browser.properties file from the browser.properties.example file in the main folder.
 - Browse to the folder: **src/test/java/com/project**.
   This is the folder in which the project related Java files will be created. So your
   feature files, steps files, pages etc should be in this folder in their own respective subfolders.
@@ -69,6 +68,6 @@ Furthermore, it is good practice to create a folder for your pages.
 
 ##Help
 
-[gitbash] Git Bash can be accessed by right mouse clicking in the folder in which you want to run the git cammand. 
+[git bash here] Git Bash can be accessed by right mouse clicking in the folder in which you want to run the git cammand. 
 
 If you have any questions please feel free to contact me: mazin.inaad@capgemini.com
