@@ -32,6 +32,11 @@ public class IgnoreCaseMap<K, V> extends LinkedHashMap<K, V> {
         return null;
     }
 
+    /** 1 based system to return the nth item number from the map
+     *
+     * @param itemNumber
+     * @return
+     */
     public V getNum(int itemNumber){
         if (itemNumber <= super.size()){
             itemNumber--;

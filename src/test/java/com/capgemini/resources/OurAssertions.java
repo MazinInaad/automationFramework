@@ -1,7 +1,8 @@
 package com.capgemini.resources;
 
-import junit.framework.Assert;
+
 import junit.framework.AssertionFailedError;
+import org.junit.Assert;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -120,18 +121,21 @@ public class OurAssertions {
 
 
     private static String getFailHeader(String failLocation) {
-        return "---Scenario: \"" + OurScenario.getScenario().getName() + "\"---\nFailed assertion (" + (failedAssertions.size() + 1) + ") at " + failLocation + "\n";
+        return "---Scenario: \"" + OurScenario.getScenario().getName() + "\"---\nFailed assertion (" + (failedAssertions.size() + 1) + ") at \n" + failLocation + "\n";
     }
 
     private static String getTrace(AssertionFailedError e) {
+        String returnString = "";
         StackTraceElement[] stack = e.getStackTrace();
-        e.printStackTrace();
         for (StackTraceElement trace : stack) {
-            if (trace.toString().contains("com.project.steps")) {
-                return trace.toString();
+            if (trace.toString().contains("com.project.")) {
+                returnString += trace.toString() + "\n";
             }
         }
-        return "Unknown";
+        if (returnString.equals(""))
+            return "unknown";
+        else
+            return returnString;
     }
 
 
