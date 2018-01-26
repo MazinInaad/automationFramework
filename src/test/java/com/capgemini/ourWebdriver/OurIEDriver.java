@@ -2,6 +2,7 @@ package com.capgemini.ourWebdriver;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -26,6 +27,7 @@ public class OurIEDriver extends InternetExplorerDriver implements OurWebDriver 
         if (browser == null || browser.getSessionId() == null) {
             DesiredCapabilities cap = new DesiredCapabilities();
             cap.setCapability("ie.ensureCleanSession", true);
+            cap.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
             browser = new OurIEDriver(cap);
         }
         return browser;
@@ -67,6 +69,16 @@ public class OurIEDriver extends InternetExplorerDriver implements OurWebDriver 
                 return ajaxDone ? true : null;
             }
         });
+    }
+
+    public void waitForAlert(){
+        WebDriverWait wait = new WebDriverWait(browser, IMPLICIT_WAIT_TIMEOUT);
+        wait.until(ExpectedConditions.alertIsPresent());
+    }
+
+    public void waitForInvisible(By by){
+        WebDriverWait wait = new WebDriverWait(browser, IMPLICIT_WAIT_TIMEOUT);
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(by));
     }
 
 }

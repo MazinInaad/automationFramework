@@ -21,4 +21,8 @@ public interface OurWebDriver extends WebDriver {
 
     void waitForAjax();
 
+    void waitForAlert();
+
+    void waitForInvisible(By by);
+
 }

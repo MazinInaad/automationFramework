@@ -4,7 +4,7 @@ import com.capgemini.resources.OurAssertions;
 import com.capgemini.resources.OurScenario;
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
-import junit.framework.Assert;
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 
 import java.io.IOException;
@@ -24,7 +24,7 @@ public class TearDown {
         Thread.sleep(0*1000);
         if(scenario.isFailed()){
             OurScenario.takeScreenShot("TestFail");
-            Thread.sleep(15*1000);
+            Thread.sleep(5*1000);
         }
         browser.quit();
 

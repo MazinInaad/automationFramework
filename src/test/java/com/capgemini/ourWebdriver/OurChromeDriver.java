@@ -85,4 +85,14 @@ public class OurChromeDriver extends ChromeDriver implements OurWebDriver {
         });
     }
 
+    public void waitForAlert(){
+        WebDriverWait wait = new WebDriverWait(browser, IMPLICIT_WAIT_TIMEOUT);
+        wait.until(ExpectedConditions.alertIsPresent());
+    }
+
+    public void waitForInvisible(By by){
+        WebDriverWait wait = new WebDriverWait(browser, IMPLICIT_WAIT_TIMEOUT);
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(by));
+    }
+
 }

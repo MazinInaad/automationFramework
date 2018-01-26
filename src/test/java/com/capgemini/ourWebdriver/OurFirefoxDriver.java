@@ -1,12 +1,9 @@
 package com.capgemini.ourWebdriver;
 
-import cucumber.api.java.After;
-import cucumber.api.java.Before;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxProfile;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -19,15 +16,20 @@ public class OurFirefoxDriver extends FirefoxDriver implements OurWebDriver {
     static OurFirefoxDriver browser;
 
     private OurFirefoxDriver() {
+    }
 
+    public OurFirefoxDriver(Capabilities desiredCapabilities) {
+        super(desiredCapabilities);
     }
 
     public static OurFirefoxDriver getBrowser() {
         System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir") + "\\geckodriver.exe");
-        if (browser == null) {
-            browser = new OurFirefoxDriver();
-        } else if (browser.getSessionId() == null) {
-            browser = new OurFirefoxDriver();
+        if (browser == null || browser.getSessionId() == null) {
+            FirefoxProfile profile = new FirefoxProfile();
+            profile.setAcceptUntrustedCertificates(true);
+            DesiredCapabilities caps = DesiredCapabilities.firefox();
+            caps.setCapability(FirefoxDriver.PROFILE, profile);
+            browser = new OurFirefoxDriver(caps);
         }
         return browser;
 
@@ -70,5 +72,14 @@ public class OurFirefoxDriver extends FirefoxDriver implements OurWebDriver {
         });
     }
 
+    public void waitForAlert(){
+        WebDriverWait wait = new WebDriverWait(browser, IMPLICIT_WAIT_TIMEOUT);
+        wait.until(ExpectedConditions.alertIsPresent());
+    }
+
+    public void waitForInvisible(By by){
+        WebDriverWait wait = new WebDriverWait(browser, IMPLICIT_WAIT_TIMEOUT);
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(by));
+    }
 
 }
