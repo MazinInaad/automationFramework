@@ -32,14 +32,13 @@ public class IgnoreCaseMap<K, V> extends LinkedHashMap<K, V> {
         return null;
     }
 
-    /** 1 based system to return the nth item number from the map
+    /** 0 based system to return the nth item number from the map
      *
      * @param itemNumber
      * @return
      */
     public V getNum(int itemNumber){
         if (itemNumber <= super.size()){
-            itemNumber--;
             Set<Map.Entry<K, V>> mapSet = super.entrySet();
             return super.get(((Map.Entry<K, V>) mapSet.toArray()[itemNumber]).getKey());
         }
@@ -50,7 +49,6 @@ public class IgnoreCaseMap<K, V> extends LinkedHashMap<K, V> {
 
     public K getKeyNum(int itemNumber){
         if (itemNumber <= super.size()){
-            itemNumber--;
             Set<Map.Entry<K, V>> mapSet = super.entrySet();
             return ((Map.Entry<K, V>) mapSet.toArray()[itemNumber]).getKey();
         }
