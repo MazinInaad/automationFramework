@@ -30,24 +30,20 @@ public class OurChromeDriver extends ChromeDriver implements OurWebDriver {
 
     public static OurChromeDriver getBrowser() {
         System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "\\chromedriver.exe");
-        if (browser == null) {
+        if (browser == null || browser.getSessionId() == null) {
+            ChromeOptions chromeOptions = new ChromeOptions();
             if (BrowserFactory.getBrowserType().equals("chrome")) {
-                browser = new OurChromeDriver();
+                chromeOptions.addArguments("incognito");
             }
             else {
                 Map<String, String> mobileEmulation = new HashMap<String, String>();
                 mobileEmulation.put("deviceName", BrowserFactory.getBrowserType());
-                ChromeOptions chromeOptions = new ChromeOptions();
                 chromeOptions.setExperimentalOption("mobileEmulation", mobileEmulation);
-                browser = new OurChromeDriver(chromeOptions);
             }
-        } else if (browser.getSessionId() == null) {
-            browser = new OurChromeDriver();
+            browser = new OurChromeDriver(chromeOptions);
         }
         return browser;
-
     }
-
 
     public WebElement waitForElement(String selector) {
         WebDriverWait wait = new WebDriverWait(browser, IMPLICIT_WAIT_TIMEOUT);
