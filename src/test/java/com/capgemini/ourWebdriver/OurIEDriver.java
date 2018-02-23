@@ -1,5 +1,6 @@
 package com.capgemini.ourWebdriver;
 
+import com.capgemini.resources.adf.OurExpectedConditions;
 import org.openqa.selenium.*;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.CapabilityType;
@@ -79,6 +80,11 @@ public class OurIEDriver extends InternetExplorerDriver implements OurWebDriver 
     public void waitForInvisible(By by){
         WebDriverWait wait = new WebDriverWait(browser, IMPLICIT_WAIT_TIMEOUT);
         wait.until(ExpectedConditions.invisibilityOfElementLocated(by));
+    }
+
+    public void waitForADF(){
+        WebDriverWait wait = new WebDriverWait(browser, IMPLICIT_WAIT_TIMEOUT);
+        wait.until(OurExpectedConditions.clientSyncedWithServer());
     }
 
 }

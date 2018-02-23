@@ -25,4 +25,6 @@ public interface OurWebDriver extends WebDriver {
 
     void waitForInvisible(By by);
 
+    void waitForADF();
+
 }

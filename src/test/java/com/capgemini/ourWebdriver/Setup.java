@@ -1,6 +1,7 @@
 package com.capgemini.ourWebdriver;
 
 import com.capgemini.resources.OurScenario;
+import com.capgemini.resources.config.ConfigReader;
 import cucumber.api.Scenario;
 import cucumber.api.java.Before;
 import org.openqa.selenium.WebDriver;
@@ -16,5 +17,6 @@ public class Setup {
         browser = BrowserFactory.getWebDriver();
         browser.manage().window().maximize();
         OurScenario.setScenario(scenario);
+        browser.navigate().to(ConfigReader.getProperty("url"));
     }
 }

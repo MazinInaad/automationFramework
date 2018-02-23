@@ -1,6 +1,6 @@
 package com.capgemini.ourWebdriver;
 
-import cucumber.api.java.After;
+import com.capgemini.resources.adf.OurExpectedConditions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -89,6 +89,11 @@ public class OurChromeDriver extends ChromeDriver implements OurWebDriver {
     public void waitForInvisible(By by){
         WebDriverWait wait = new WebDriverWait(browser, IMPLICIT_WAIT_TIMEOUT);
         wait.until(ExpectedConditions.invisibilityOfElementLocated(by));
+    }
+
+    public void waitForADF(){
+        WebDriverWait wait = new WebDriverWait(browser, IMPLICIT_WAIT_TIMEOUT);
+        wait.until(OurExpectedConditions.clientSyncedWithServer());
     }
 
 }
