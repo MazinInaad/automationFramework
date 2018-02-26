@@ -1,6 +1,5 @@
 package com.capgemini.ourWebdriver;
 
-import com.capgemini.resources.adf.OurExpectedConditions;
 import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
