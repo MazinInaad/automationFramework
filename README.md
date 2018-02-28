@@ -16,7 +16,10 @@ Download&Install:
 git config --global http.proxy http://@proxy.org.om.local:8080
 no_proxy=.org.om.local
 ```  
-- Set proxy settings for IntelliJ: File, Settings, System Settings, HTTP Proxy.
+- The following steps can be taken after you have completed the instructions mentioned under **Setup**
+- You now need to set the proxy settings for IntelliJ and Maven. Use proxy-snat.org.om.local instead of proxy.org.om.local with your dev account username and password when doing this.
+  - IntelliJ: File, Settings, System Settings, HTTP Proxy. 
+  - Maven: In your IntelliJ project, right click on the pom.xml file, navigate to "Maven  >" and select "Open 'settings.xml'"
 
 - When cloning a project from the OM bitbucket (at the end of the Setup instructions below) the following steps are necessary:
 ```git  
