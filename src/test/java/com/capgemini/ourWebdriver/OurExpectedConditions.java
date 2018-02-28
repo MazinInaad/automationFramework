@@ -3,6 +3,9 @@ package com.capgemini.ourWebdriver;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 
+/**
+ * Created by MInaad on 26/2/2018.
+ */
 public class OurExpectedConditions{
 
     public static ExpectedCondition<Boolean> clientSyncedWithServer() {

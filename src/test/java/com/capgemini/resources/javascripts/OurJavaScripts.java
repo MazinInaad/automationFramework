@@ -3,6 +3,9 @@ package com.capgemini.resources.javascripts;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 
+/**
+ * Created by MInaad on 26/2/2018.
+ */
 public class OurJavaScripts {
 
     public static void disableAnimation(WebDriver driver){

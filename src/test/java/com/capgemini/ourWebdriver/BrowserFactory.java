@@ -7,6 +7,10 @@ import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.util.Properties;
 
+/**
+ * Created by DLAMMERS on 24/1/2017.
+ * Updated by MInaad on 18/12/2017
+ */
 public class BrowserFactory {
 
     static OurWebDriver browser;

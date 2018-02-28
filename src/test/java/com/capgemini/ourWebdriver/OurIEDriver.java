@@ -10,6 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
  * Created by dlammers on 2/27/2017.
+ * Updated by MInaad on 18/01/2018.
  */
 public class OurIEDriver extends InternetExplorerDriver implements OurWebDriver {
 

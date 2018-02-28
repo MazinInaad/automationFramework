@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 
 /**
  * Created by DLAMMERS on 24/1/2017.
+ * Updated by MInaad on 26/2/2018
  */
 public interface OurWebDriver extends WebDriver {
 
