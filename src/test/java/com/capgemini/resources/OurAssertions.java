@@ -32,7 +32,7 @@ public class OurAssertions {
         try {
             Assert.assertEquals(expected, actual);
         } catch (AssertionFailedError e) {
-            String failLocation = getTrace(e);
+            String failLocation = getTrace(e.getStackTrace());
             failedAssertions.add(getFailHeader(failLocation) + "Expected: " + expected + "\nActual: " + actual);
             OurScenario.takeScreenShot("Assertion_failed_" + failedAssertions.size());
             assertionFailed = true;
@@ -53,7 +53,7 @@ public class OurAssertions {
         try {
             Assert.assertEquals(expected, actual);
         } catch (AssertionFailedError e) {
-            String failLocation = getTrace(e);
+            String failLocation = getTrace(e.getStackTrace());
             failedAssertions.add(getFailHeader(failLocation) + "Expected int: " + expected + "\nActual int: " + actual);
             OurScenario.takeScreenShot("Assertion_failed_" + failedAssertions.size());
             assertionFailed = true;
@@ -74,7 +74,7 @@ public class OurAssertions {
         try {
             Assert.assertTrue(mainString.contains(containsString));
         } catch (AssertionFailedError e) {
-            String failLocation = getTrace(e);
+            String failLocation = getTrace(e.getStackTrace());
             failedAssertions.add(getFailHeader(failLocation) + "String: " + mainString + "\ndoes not contain: " + containsString);
             OurScenario.takeScreenShot("Assertion_failed_" + failedAssertions.size());
             assertionFailed = true;
@@ -95,7 +95,7 @@ public class OurAssertions {
         try {
             Assert.assertTrue(mainString.endsWith(endsWithString));
         } catch (AssertionFailedError e) {
-            String failLocation = getTrace(e);
+            String failLocation = getTrace(e.getStackTrace());
             failedAssertions.add(getFailHeader(failLocation) + "String: " + mainString + "\ndoes not end with " + endsWithString);
             OurScenario.takeScreenShot("Assertion_failed_" + failedAssertions.size());
             assertionFailed = true;
@@ -124,9 +124,8 @@ public class OurAssertions {
         return "---Scenario: \"" + OurScenario.getScenario().getName() + "\"---\nFailed assertion (" + (failedAssertions.size() + 1) + ") at \n" + failLocation + "\n";
     }
 
-    private static String getTrace(AssertionFailedError e) {
+    public static String getTrace(StackTraceElement[] stack) {
         String returnString = "";
-        StackTraceElement[] stack = e.getStackTrace();
         for (StackTraceElement trace : stack) {
             if (trace.toString().contains("com.project.")) {
                 returnString += trace.toString() + "\n";
