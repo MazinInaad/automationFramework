@@ -25,10 +25,9 @@ public class OurAssertions {
      *
      * @param expected The expected value of the String
      * @param actual The String to be tested
-     * @throws IOException
      * @see Assert
      */
-    public static void assertEquals(String expected, String actual) throws IOException {
+    public static void assertEquals(String expected, String actual) {
         try {
             Assert.assertEquals(expected, actual);
         } catch (AssertionFailedError e) {
@@ -46,10 +45,9 @@ public class OurAssertions {
      *
      * @param expected The expected value of the int
      * @param actual The int to be tested
-     * @throws IOException
      * @see Assert
      */
-    public static void assertEquals(int expected, int actual) throws IOException {
+    public static void assertEquals(int expected, int actual) {
         try {
             Assert.assertEquals(expected, actual);
         } catch (AssertionFailedError e) {
@@ -67,10 +65,9 @@ public class OurAssertions {
      *
      * @param mainString The string to be tested
      * @param containsString The substring which the test string should contain
-     * @throws IOException
      * @see Assert
      */
-    public static void assertContains(String mainString, String containsString) throws IOException {
+    public static void assertContains(String mainString, String containsString) {
         try {
             Assert.assertTrue(mainString.contains(containsString));
         } catch (AssertionFailedError e) {
@@ -88,10 +85,9 @@ public class OurAssertions {
      *
      * @param mainString The String to be tested
      * @param endsWithString The substring which the test string should end with
-     * @throws IOException
      * @see Assert
      */
-    public static void assertEndsWith(String mainString, String endsWithString) throws IOException {
+    public static void assertEndsWith(String mainString, String endsWithString) {
         try {
             Assert.assertTrue(mainString.endsWith(endsWithString));
         } catch (AssertionFailedError e) {
@@ -136,6 +132,4 @@ public class OurAssertions {
         else
             return returnString;
     }
-
-
 }

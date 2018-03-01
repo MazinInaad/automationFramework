@@ -41,13 +41,16 @@ public class OurScenario {
      * The screenshot is always saved as a .png file.
      *
      * @param filename the name to be given to the screenshot without file extension. The name will automatically be prepended with the number of the screenshot taken
-     * @throws IOException
      */
-    public static void takeScreenShot(String filename) throws IOException {
+    public static void takeScreenShot(String filename) {
         filename += ".png";
-
-        File scrFile = ((TakesScreenshot) BrowserFactory.getWebDriver()).getScreenshotAs(OutputType.FILE);
-        FileUtils.copyFile(scrFile, new File(System.getProperty("user.dir") +"\\screenshots\\" + scenarioPath +"\\" + String.format("%02d", screenShotNumber++) + "_" + filename));
+        try {
+            File scrFile = ((TakesScreenshot) BrowserFactory.getWebDriver()).getScreenshotAs(OutputType.FILE);
+            FileUtils.copyFile(scrFile, new File(System.getProperty("user.dir") +"\\screenshots\\" + scenarioPath +"\\" + String.format("%02d", screenShotNumber++) + "_" + filename));
+        } catch (IOException e) {
+            System.out.println("Error occured while trying to save screenshot.");
+            e.printStackTrace();
+        }
     }
 
     public static String getDevice() {
