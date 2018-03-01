@@ -17,6 +17,8 @@ public class Setup {
         browser = BrowserFactory.getWebDriver();
         browser.manage().window().maximize();
         OurScenario.setScenario(scenario);
+        String browserType = BrowserFactory.getBrowserType();
+        OurScenario.setScenarioPath(scenario.getName() + "\\" + browserType);
         browser.navigate().to(ConfigReader.getProperty("url"));
     }
 }
