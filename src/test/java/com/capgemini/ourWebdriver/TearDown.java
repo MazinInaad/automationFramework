@@ -20,8 +20,8 @@ public class TearDown {
 
 
     @After
-    public void afterScenario(Scenario scenario) throws InterruptedException, IOException {
         Thread.sleep(0*1000);
+    public void afterScenario(Scenario scenario) throws InterruptedException{
         if(scenario.isFailed()){
             OurScenario.takeScreenShot("TestFail");
             Thread.sleep(5*1000);
