@@ -8,7 +8,7 @@ Download&Install:
 - [IntelliJ community edition] (https://www.jetbrains.com/idea/download/#section=windows)
 - Chrome Plugin: [CSS Selector Helper for Chrome] (https://chrome.google.com/webstore/detail/css-selector-helper-for-c/gddgceinofapfodcekopkjjelkbjodin)
 - [git] (https://git-scm.com)
-- java jdk (not jre)
+- java jdk (windows64: http://www.oracle.com/technetwork/java/javase/downloads/jdk9-downloads-3848520.html)
 
 ### Specific instructions for installing and setting up on DVOM Dev_account
 - Set proxy settings for git (git bash anywhere):
@@ -48,10 +48,12 @@ git config http.sslVerify false
     - choose new in Project SDK section, select JDK and direct to your java/jdk folder
     - install plugins: gherkin, cucumber
 - Create a browser.properties file from the browser.properties.example file in the main folder.
-- Browse to the folder: **src/test/java/com/project**.
+- Browse to the folder: **src/test/java/com/** and create a folder named  **project**. **In this folder you can create a new git for your own project**.
   This is the folder in which the project related Java files will be created. So your
-  feature files, steps files, pages etc should be in this folder in their own respective subfolders.
-  **In this folder you can create a new git for your own project**.
+  feature files (folder "features"), steps files (folder "steps"), pages (folder "pages") etc should be in this folder in their own respective subfolders.
+- **Important** For the framework to work you also need to have a {environment}.properties (for example ont.properties) file in the folder **project/resources/config** with at least a **url** property.
+  For more information see the template in **capgemini/resources/config/template.properties**
+  
   
 ## FrameWork setup
 The framework has been setup such that generic Java classes such as the WebDrivers for 
