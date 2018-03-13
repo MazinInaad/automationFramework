@@ -40,6 +40,7 @@ git config http.sslVerify false
     
     git clone https://<username>@bitbucket.org/mazin_inaad/automatedtests.git .
     
+- Create a pom.xml file from the pom.xml.example file in the main folder. Edit the xml elements on lines 5 and 8 to the name of your project.
 - Start up IntelliJ
 - If it is your first IntelliJ project then in IntelliJ:
     - Select 'Open' project and browse to the test project folder you just created and open the folder
