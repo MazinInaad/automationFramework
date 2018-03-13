@@ -28,4 +28,8 @@ public interface OurWebDriver extends WebDriver {
 
     void waitForADF();
 
+    WebElement hover(By by);
+
+    WebElement hover(WebElement webElement);
+
 }

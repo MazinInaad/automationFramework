@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -96,4 +97,16 @@ public class OurChromeDriver extends ChromeDriver implements OurWebDriver {
         wait.until(OurExpectedConditions.clientSyncedWithServer());
     }
 
+    public WebElement hover(By by) {
+        Actions action = new Actions(browser);
+        WebElement we = browser.findElement(by);
+        action.moveToElement(we).perform();
+        return we;
+    }
+
+    public WebElement hover(WebElement webElement) {
+        Actions action = new Actions(browser);
+        action.moveToElement(webElement).perform();
+        return webElement;
+    }
 }

@@ -3,6 +3,7 @@ package com.capgemini.ourWebdriver;
 import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -87,4 +88,16 @@ public class OurFirefoxDriver extends FirefoxDriver implements OurWebDriver {
         wait.until(OurExpectedConditions.clientSyncedWithServer());
     }
 
+    public WebElement hover(By by) {
+        Actions action = new Actions(browser);
+        WebElement we = browser.findElement(by);
+        action.moveToElement(we).perform();
+        return we;
+    }
+
+    public WebElement hover(WebElement webElement) {
+        Actions action = new Actions(browser);
+        action.moveToElement(webElement).perform();
+        return webElement;
+    }
 }
