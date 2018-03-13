@@ -1,5 +1,6 @@
 package com.capgemini.ourWebdriver;
 
+import com.capgemini.resources.javascripts.OurJavaScripts;
 import org.openqa.selenium.*;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.interactions.Actions;
@@ -83,21 +84,22 @@ public class OurIEDriver extends InternetExplorerDriver implements OurWebDriver 
         wait.until(ExpectedConditions.invisibilityOfElementLocated(by));
     }
 
+    public void disableAnimation() {
+        browser.executeScript(OurJavaScripts.getDisableAnimationScript());
+    }
+
     public void waitForADF(){
         WebDriverWait wait = new WebDriverWait(browser, IMPLICIT_WAIT_TIMEOUT);
         wait.until(OurExpectedConditions.clientSyncedWithServer());
     }
 
     public WebElement hover(By by) {
-        Actions action = new Actions(browser);
-        WebElement we = browser.findElement(by);
-        action.moveToElement(we).perform();
-        return we;
+        WebElement element = browser.findElement(by);
+        return hover(element);
     }
 
-    public WebElement hover(WebElement webElement) {
-        Actions action = new Actions(browser);
-        action.moveToElement(webElement).perform();
-        return webElement;
+    public WebElement hover(WebElement element) {
+        browser.executeScript(OurJavaScripts.getMouseOverScript(),element);
+        return element;
     }
 }

@@ -26,10 +26,11 @@ public interface OurWebDriver extends WebDriver {
 
     void waitForInvisible(By by);
 
+    void disableAnimation();
+
     void waitForADF();
 
     WebElement hover(By by);
 
-    WebElement hover(WebElement webElement);
-
+    WebElement hover(WebElement element);
 }

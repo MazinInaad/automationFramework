@@ -8,10 +8,21 @@ import org.openqa.selenium.WebDriver;
  */
 public class OurJavaScripts {
 
-    public static void disableAnimation(WebDriver driver){
-        String js = "AdfPage.PAGE.setAnimationEnabled(false)";
-        JavascriptExecutor jsDriver = (JavascriptExecutor) driver;
-        Object result = jsDriver.executeScript(js);
-//        System.out.println("Disable Animation response: " + result);
+    public static String getDisableAnimationScript(){
+        String js = "AdfPage.PAGE.setAnimationEnabled(false);";
+        return js;
+    }
+
+    public static String getMouseOverScript(){
+        String js =
+                "if(document.createEvent) {" +
+                    "var evObj = document.createEvent('MouseEvents');"+
+                    "evObj.initEvent('mouseover',true, false);"+
+                    "arguments[0].dispatchEvent(evObj);" +
+                "}"+
+                "else if(document.createEventObject) { "+
+                    "arguments[0].fireEvent('onmouseover');"+
+                "}";
+        return js;
     }
 }
