@@ -48,7 +48,7 @@ git config http.sslVerify false
     - project tab
     - choose new in Project SDK section, select JDK and direct to your java/jdk folder
     - install plugins: gherkin, cucumber
-- Create a browser.properties file from the browser.properties.example file in the main folder.
+- Create a browser.properties file from the browser.properties.example file in the main folder. 
 - Browse to the folder: **src/test/java/com/** and create a folder named  **project**. **In this folder you can create a new git for your own project**.
   This is the folder in which the project related Java files will be created. So your
   feature files (folder "features"), steps files (folder "steps"), pages (folder "pages") etc should be in this folder in their own respective subfolders.
