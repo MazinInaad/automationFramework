@@ -4,4 +4,4 @@ screenshots/
 src/test/java/com/project/*
 browser.properties
 .svn
-.iml
+*.iml
