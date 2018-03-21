@@ -8,6 +8,9 @@ import org.openqa.selenium.TakesScreenshot;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * Created by MINAAD on 23-11-2017.
@@ -17,22 +20,24 @@ public class OurScenario {
     private static String scenarioPath;
     private static int screenShotNumber;
     private static String device;
+    public static Date now = new Date();
+    private static DateFormat dateFormatter = new SimpleDateFormat("yyyyMMdd_hhmm");
+
 
     public OurScenario() {
     }
 
     public static void setScenario(Scenario scenarioSet){
         scenario = scenarioSet;
-    }
-
-    public static Scenario getScenario(){
-        return scenario;
-    }
-
-    public static void setScenarioPath(String scenarioPathSet) {
-        scenarioPath = scenarioPathSet;
+        String browserType = BrowserFactory.getBrowserType();
+        scenarioPath = (scenario.getName() + "\\" + browserType + "_" + dateFormatter.format(now));
         screenShotNumber = 1;
     }
+
+    public static String getScenarioName(){
+        return scenario.getName();
+    }
+
 
     /**
      * Takes a screenshot of the webpage and saves it in a folder

@@ -191,7 +191,7 @@ public class OurAssertions {
 
 
     private static String getFailHeader(String failLocation) {
-        return "---Scenario: \"" + OurScenario.getScenario().getName() + "\"---\nFailed assertion (" + (failedAssertions.size() + 1) + ") at \n" + failLocation + "\n";
+        return "---Scenario: \"" + OurScenario.getScenarioName() + "\"---\nFailed assertion (" + (failedAssertions.size() + 1) + ") at \n" + failLocation + "\n";
     }
 
     public static String getTrace(StackTraceElement[] stack) {
