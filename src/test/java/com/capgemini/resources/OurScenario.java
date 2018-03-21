@@ -21,7 +21,7 @@ public class OurScenario {
     private static int screenShotNumber;
     private static String device;
     public static Date now = new Date();
-    private static DateFormat dateFormatter = new SimpleDateFormat("yyyyMMdd_hhmm");
+    private static DateFormat dateFormatter = new SimpleDateFormat("yyyyMMdd_HHmm");
 
 
     public OurScenario() {
