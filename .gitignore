@@ -6,3 +6,4 @@ browser.properties
 .svn
 *.iml
 pom.xml
+target/

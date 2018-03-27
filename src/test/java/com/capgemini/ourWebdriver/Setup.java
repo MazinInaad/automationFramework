@@ -13,10 +13,10 @@ public class Setup {
     WebDriver browser;
 
     @Before
-    public void beforeScenario(Scenario scenario) throws MalformedURLException {
+    public void beforeScenario(Scenario scenario){
         browser = BrowserFactory.getWebDriver();
         browser.manage().window().maximize();
         OurScenario.setScenario(scenario);
-        browser.navigate().to(ConfigReader.getProperty("url"));
+        browser.get(ConfigReader.getProperty("url"));
     }
 }
