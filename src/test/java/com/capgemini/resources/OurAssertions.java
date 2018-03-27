@@ -15,7 +15,9 @@ public class OurAssertions {
     private static ArrayList<String> failedAssertions = new ArrayList<String>();
     private static boolean assertionFailed = false;
 
-    public OurAssertions() {
+    public static void resetAssertions(){
+        failedAssertions = new ArrayList<String>();
+        assertionFailed = false;
     }
 
     /**

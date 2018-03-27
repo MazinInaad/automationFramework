@@ -23,15 +23,12 @@ public class OurScenario {
     public static Date now = new Date();
     private static DateFormat dateFormatter = new SimpleDateFormat("yyyyMMdd_HHmm");
 
-
-    public OurScenario() {
-    }
-
     public static void setScenario(Scenario scenarioSet){
         scenario = scenarioSet;
         String browserType = BrowserFactory.getBrowserType();
         scenarioPath = (scenario.getName() + "\\" + browserType + "_" + dateFormatter.format(now));
         screenShotNumber = 1;
+        OurAssertions.resetAssertions();
     }
 
     public static String getScenarioName(){
