@@ -20,10 +20,11 @@ public class OurScenario {
     private static String scenarioPath;
     private static int screenShotNumber;
     private static String device;
-    public static Date now = new Date();
+    public static Date now;
     private static DateFormat dateFormatter = new SimpleDateFormat("yyyyMMdd_HHmm");
 
     public static void setScenario(Scenario scenarioSet){
+        now = new Date();
         scenario = scenarioSet;
         String browserType = BrowserFactory.getBrowserType();
         scenarioPath = (scenario.getName() + "\\" + browserType + "_" + dateFormatter.format(now));
