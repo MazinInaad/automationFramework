@@ -32,6 +32,14 @@ public class IgnoreCaseMap<K, V> extends LinkedHashMap<K, V> {
         return null;
     }
 
+    public V getStartsWith(String keyStartsWith){
+        for (K key:super.keySet()){
+            if (key.toString().startsWith(formatKey(keyStartsWith)))
+                return super.get(key);
+        }
+        return null;
+    }
+
     /** 0 based system to return the nth item number from the map
      *
      * @param itemNumber
