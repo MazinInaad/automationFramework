@@ -29,9 +29,10 @@ public class OurAssertions {
      * @param actual The String to be tested
      * @see Assert
      */
-    public static void assertEquals(String expected, String actual, boolean failTest) {
+    public static boolean assertEquals(String expected, String actual, boolean failTest) {
         try {
             Assert.assertEquals(expected, actual);
+            return true;
         } catch (AssertionError e) {
             String failLocation = getTrace(e.getStackTrace());
             String errorMessage = getFailHeader(failLocation) + "Expected: " + expected + "\nActual: " + actual;
@@ -40,10 +41,11 @@ public class OurAssertions {
             assertionFailed = true;
             if (failTest)
                 Assert.fail("Test has failed due to assertion failure:\n"+errorMessage);
+            return false;
         }
     }
-    public static void assertEquals(String expected, String actual) {
-        assertEquals(expected, actual, false);
+    public static boolean assertEquals(String expected, String actual) {
+        return assertEquals(expected, actual, false);
     }
 
 
@@ -56,9 +58,10 @@ public class OurAssertions {
      * @param actual The int to be tested
      * @see Assert
      */
-    public static void assertEquals(int expected, int actual, boolean failTest) {
+    public static boolean assertEquals(int expected, int actual, boolean failTest) {
         try {
             Assert.assertEquals(expected, actual);
+            return true;
         } catch (AssertionError e) {
             String failLocation = getTrace(e.getStackTrace());
             String errorMessage = getFailHeader(failLocation) + "Expected int: " + expected + "\nActual int: " + actual;
@@ -67,10 +70,11 @@ public class OurAssertions {
             assertionFailed = true;
             if (failTest)
                 Assert.fail("Test has failed due to assertion failure:\n"+errorMessage);
+            return false;
         }
     }
-    public static void assertEquals(int expected, int actual) {
-        assertEquals(expected, actual, false);
+    public static boolean assertEquals(int expected, int actual) {
+        return assertEquals(expected, actual, false);
     }
 
     /**
@@ -82,9 +86,10 @@ public class OurAssertions {
      * @param containsString The substring which the test string should contain
      * @see Assert
      */
-    public static void assertContains(String mainString, String containsString, boolean failTest) {
+    public static boolean assertContains(String mainString, String containsString, boolean failTest) {
         try {
             Assert.assertTrue(mainString.contains(containsString));
+            return true;
         } catch (AssertionError e) {
             String failLocation = getTrace(e.getStackTrace());
             String errorMessage = (getFailHeader(failLocation) + "String: " + mainString + "\ndoes not contain: " + containsString);
@@ -93,10 +98,11 @@ public class OurAssertions {
             assertionFailed = true;
             if (failTest)
                 Assert.fail("Test has failed due to assertion failure:\n"+errorMessage);
+            return false;
         }
     }
-    public static void assertContains(String mainString, String containsString) {
-        assertContains(mainString, containsString, false);
+    public static boolean assertContains(String mainString, String containsString) {
+        return assertContains(mainString, containsString, false);
     }
 
     /**
@@ -108,9 +114,10 @@ public class OurAssertions {
      * @param endsWithString The substring which the test string should end with
      * @see Assert
      */
-    public static void assertEndsWith(String mainString, String endsWithString, boolean failTest) {
+    public static boolean assertEndsWith(String mainString, String endsWithString, boolean failTest) {
         try {
             Assert.assertTrue(mainString.endsWith(endsWithString));
+            return true;
         } catch (AssertionError e) {
             String failLocation = getTrace(e.getStackTrace());
             String errorMessage = (getFailHeader(failLocation) + "String: " + mainString + "\ndoes not end with " + endsWithString);
@@ -119,10 +126,11 @@ public class OurAssertions {
             assertionFailed = true;
             if (failTest)
                 Assert.fail("Test has failed due to assertion failure:\n"+errorMessage);
+            return false;
         }
     }
-    public static void assertEndsWith(String mainString, String endsWithString) {
-        assertEndsWith(mainString, endsWithString, false);
+    public static boolean assertEndsWith(String mainString, String endsWithString) {
+        return assertEndsWith(mainString, endsWithString, false);
     }
 
     /**
@@ -134,9 +142,10 @@ public class OurAssertions {
      * @param startsWithString The substring which the test string should end with
      * @see Assert
      */
-    public static void assertStartsWith(String mainString, String startsWithString, boolean failTest) {
+    public static boolean assertStartsWith(String mainString, String startsWithString, boolean failTest) {
         try {
             Assert.assertTrue(mainString.startsWith(startsWithString));
+            return true;
         } catch (AssertionError e) {
             String failLocation = getTrace(e.getStackTrace());
             String errorMessage = (getFailHeader(failLocation) + "String: " + mainString + "\ndoes not start with " + startsWithString);
@@ -145,10 +154,46 @@ public class OurAssertions {
             assertionFailed = true;
             if (failTest)
                 Assert.fail("Test has failed due to assertion failure:\n"+errorMessage);
+            return false;
         }
     }
-    public static void assertStartsWith(String mainString, String startsWithString) {
-        assertStartsWith(mainString, startsWithString, false);
+    public static boolean assertStartsWith(String mainString, String startsWithString) {
+        return assertStartsWith(mainString, startsWithString, false);
+    }
+
+    /**
+     * Custom Assert function which tries the assertTrue method from {@link Assert}.
+     * If this fails, the fail location is registered (so that it can be printed later)
+     * and a screenshot is taken with name 'Assertion_failed_id'.
+     *
+     * @param assertionMessage
+     * @param assertion
+     * @param failTest
+     */
+    public static boolean assertTrue(String assertionMessage, boolean assertion, boolean failTest){
+        try {
+            Assert.assertTrue(assertion);
+            return true;
+        }
+        catch (AssertionError e){
+            String failLocation = getTrace(e.getStackTrace());
+            String errorMessage = (getFailHeader(failLocation) + assertionMessage);
+            failedAssertions.add(errorMessage);
+            OurScenario.takeScreenShot("Assertion_failed_" + failedAssertions.size());
+            assertionFailed = true;
+            if (failTest)
+                Assert.fail("Test has failed due to assertion failure:\n"+errorMessage);
+            return false;
+        }
+    }
+    public static boolean assertTrue(String assertionMessage, boolean assertion){
+        return assertTrue(assertionMessage, assertion, false);
+    }
+    public static boolean assertTrue(boolean assertion, boolean failTest){
+        return assertTrue("Expected 'true', actual 'false'", assertion, failTest);
+    }
+    public static boolean assertTrue(boolean assertion){
+        return assertTrue(assertion, false);
     }
 
     /**
@@ -156,9 +201,10 @@ public class OurAssertions {
      * @param browser The driver with which to search for the element
      * @param by The selector for the element
      */
-    public static void verifyElementpresent(OurWebDriver browser, By by, boolean failTest){
+    public static boolean verifyElementpresent(OurWebDriver browser, By by, boolean failTest){
         try{
             Assert.assertTrue(browser.findElements(by).size() > 0);
+            return true;
         }
         catch (AssertionError e){
             String failLocation = getTrace(e.getStackTrace());
@@ -168,10 +214,11 @@ public class OurAssertions {
             assertionFailed = true;
             if (failTest)
                 Assert.fail("Test has failed due to assertion failure:\n"+errorMessage);
+            return false;
         }
     }
-    public static void verifyElementpresent(OurWebDriver browser, By by){
-        verifyElementpresent(browser, by, false);
+    public static boolean verifyElementpresent(OurWebDriver browser, By by){
+        return verifyElementpresent(browser, by, false);
     }
 
     /**
