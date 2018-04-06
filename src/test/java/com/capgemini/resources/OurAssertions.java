@@ -45,7 +45,7 @@ public class OurAssertions {
         }
     }
     public static boolean assertEquals(String expected, String actual) {
-        return assertEquals(expected, actual, false);
+        return assertEquals(expected, actual, true);
     }
 
 
@@ -74,7 +74,7 @@ public class OurAssertions {
         }
     }
     public static boolean assertEquals(int expected, int actual) {
-        return assertEquals(expected, actual, false);
+        return assertEquals(expected, actual, true);
     }
 
     /**
@@ -102,7 +102,7 @@ public class OurAssertions {
         }
     }
     public static boolean assertContains(String mainString, String containsString) {
-        return assertContains(mainString, containsString, false);
+        return assertContains(mainString, containsString, true);
     }
 
     /**
@@ -130,7 +130,7 @@ public class OurAssertions {
         }
     }
     public static boolean assertEndsWith(String mainString, String endsWithString) {
-        return assertEndsWith(mainString, endsWithString, false);
+        return assertEndsWith(mainString, endsWithString, true);
     }
 
     /**
@@ -158,7 +158,7 @@ public class OurAssertions {
         }
     }
     public static boolean assertStartsWith(String mainString, String startsWithString) {
-        return assertStartsWith(mainString, startsWithString, false);
+        return assertStartsWith(mainString, startsWithString, true);
     }
 
     /**
@@ -187,13 +187,13 @@ public class OurAssertions {
         }
     }
     public static boolean assertTrue(String assertionMessage, boolean assertion){
-        return assertTrue(assertionMessage, assertion, false);
+        return assertTrue(assertionMessage, assertion, true);
     }
     public static boolean assertTrue(boolean assertion, boolean failTest){
         return assertTrue("Expected 'true', actual 'false'", assertion, failTest);
     }
     public static boolean assertTrue(boolean assertion){
-        return assertTrue(assertion, false);
+        return assertTrue(assertion, true);
     }
 
     /**
@@ -218,7 +218,7 @@ public class OurAssertions {
         }
     }
     public static boolean verifyElementpresent(OurWebDriver browser, By by){
-        return verifyElementpresent(browser, by, false);
+        return verifyElementpresent(browser, by, true);
     }
 
     /**
