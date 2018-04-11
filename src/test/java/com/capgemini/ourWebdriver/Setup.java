@@ -4,13 +4,10 @@ import com.capgemini.resources.OurScenario;
 import com.capgemini.resources.config.ConfigReader;
 import cucumber.api.Scenario;
 import cucumber.api.java.Before;
-import org.openqa.selenium.WebDriver;
-
-import java.net.MalformedURLException;
 
 public class Setup {
 
-    WebDriver browser;
+    OurWebDriver browser;
 
     @Before
     public void beforeScenario(Scenario scenario){
