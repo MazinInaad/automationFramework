@@ -1,39 +1,19 @@
-Cucumber-Java-Selenium
+Java Framework for Selenium Webriver with Cucumber
 ==================
 
-## Installation
+## Download & Install:
 
-Download&Install:
-
-- [IntelliJ community edition] (https://www.jetbrains.com/idea/download/#section=windows)
+- Java IDE: [IntelliJ community edition] (https://www.jetbrains.com/idea/download/#section=windows)
 - Chrome Plugin: [CSS Selector Helper for Chrome] (https://chrome.google.com/webstore/detail/css-selector-helper-for-c/gddgceinofapfodcekopkjjelkbjodin)
-- [git] (https://git-scm.com)
-- java jdk (windows64: http://www.oracle.com/technetwork/java/javase/downloads/jdk9-downloads-3848520.html)
+- Git: (https://git-scm.com)
+- Java jdk: (windows64: http://www.oracle.com/technetwork/java/javase/downloads/jdk9-downloads-3848520.html)
 
-### Specific instructions for installing and setting up on DVOM Dev_account
-- Set proxy settings for git (git bash anywhere):
-```git
-git config --global http.proxy http://@proxy.org.om.local:8080
-no_proxy=.org.om.local
-```  
-- The following steps can be taken after you have completed the instructions mentioned under **Setup**
-- You now need to set the proxy settings for IntelliJ and Maven. Use proxy-snat.org.om.local instead of proxy.org.om.local with your dev account username and password when doing this.
-    - IntelliJ: File, Settings, System Settings, HTTP Proxy. 
-    - Maven: In your IntelliJ project, right click on the pom.xml file, navigate to "Maven  >" and select "Open 'settings.xml'"
-
-- When cloning a project from the OM bitbucket (at the end of the Setup instructions below) the following steps are necessary:
-```git  
-git config --global http.sslVerify false
-git clone <OM Bitbucket repository> .
-git config --global --unset http.sslVerify
-git config http.sslVerify false
-```
 
 ## Setup
 
-- Create Folder for test project and type in the following command in [git bash here]. 
+- Create a folder for your test project and type in the following command in [git bash here]. 
   **Please note:** Each account has a unique command since you have to give your username in the command.
-  This command can also be found at the top of your bitbucket page.
+  This command can also be found at the top of this bitbucket page.
   You now have the generic test automation framework.
   
   **Important: the ' .' at the end insures that it is cloned into the current file and not to a subfile.**
@@ -44,15 +24,13 @@ git config http.sslVerify false
 - Start up IntelliJ
 - If it is your first IntelliJ project then in IntelliJ:
     - Select 'Open' project and browse to the test project folder you just created and open the folder
-    - open project structure (CTRL + Shift + Alt + S)
-    - project tab
-    - choose new in Project SDK section, select JDK and direct to your java/jdk folder
-    - install plugins: gherkin, cucumber
+    - Open project structure (CTRL + Shift + Alt + S), navigate to the 'Project' tab, choose new in Project SDK section, select JDK and direct to your java/jdk folder
+    - Open Settings (CTRL + ALT + S), navigate to 'Plugins' and install the plugins: Gherkin and Cucumber for Java
 - Create a browser.properties file from the browser.properties.example file in the main folder. 
 - Browse to the folder: **src/test/java/com/** and create a folder named  **project**. **In this folder you can create a new git for your own project**.
   This is the folder in which the project related Java files will be created. So your
   feature files (folder "features"), steps files (folder "steps"), pages (folder "pages") etc should be in this folder in their own respective subfolders.
-- **Important** For the framework to work you also need to have a {environment}.properties (for example ont.properties) file in the folder **project/resources/config** with at least a **url** property.
+- **Important** For the framework to work you also need to have a {environment}.properties file (for example ont.properties) in the folder **project/resources/config** with at least a **url** property.
   For more information see the template in **capgemini/resources/config/template.properties**
   
   
@@ -72,8 +50,25 @@ framework repo. However, the user can place this folder in his own git repo for 
 In the project folder it is best to create subfolders for your feature files (named 'features') and steps (named steps).
 Furthermore, it is good practice to create a folder for your pages.
 
-##Help
+## Help
 
-[git bash here] Git Bash can be accessed by right mouse clicking in the folder in which you want to run the git cammand. 
+### [git bash here] 
+Git Bash can be accessed by right mouse clicking in the folder in which you want to run the git cammand. 
+
+### Setting (global) proxy for git
+- Set proxy settings for git (git bash anywhere):
+```git
+git config --global http.proxy http://@proxy.org.om.local:8080
+```  
+
+### Accessing DVOM Bitbucket
+- When cloning a project from the DVOM bitbucket (at the end of the Setup instructions below) the following steps are necessary:
+```git  
+git config --global http.sslVerify false
+git clone <OM Bitbucket repository> .
+git config --global --unset http.sslVerify
+git config http.sslVerify false
+```
+
 
 If you have any questions please feel free to contact me: mazin.inaad@capgemini.com
