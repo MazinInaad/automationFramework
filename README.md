@@ -1,6 +1,8 @@
 Java Framework for Selenium Webriver with Cucumber
 ==================================================
 
+This document provides instruction on how to setup this framework on your local machine. There is a **Help** section at the bottom to answer the FAQ's. Any suggestions to improve this document are most welcome.
+
 ## Download & Install:
 
 - Java IDE: [IntelliJ community edition] (https://www.jetbrains.com/idea/download/#section=windows)
@@ -11,7 +13,7 @@ Java Framework for Selenium Webriver with Cucumber
 
 ## Setup
 
-- Create a folder for your test project and type in the following command in [git bash here]. 
+- Create a folder for your test project and type in the following command in git bash here. 
   **Please note:** Each account has a unique command since you have to give your username in the command.
   This command can also be found at the top of this bitbucket page.
   You now have the generic test automation framework.
@@ -52,8 +54,8 @@ Furthermore, it is good practice to create a folder for your pages.
 
 ## Help
 
-### [git bash here] 
-Git Bash can be accessed by right mouse clicking in the folder in which you want to run the git cammand. 
+### git bash here 
+Git Bash can be accessed by right mouse clicking in the folder in which you want to run the git command. 
 
 ### Setting (global) proxy for git
 - Set proxy settings for git (git bash anywhere):
