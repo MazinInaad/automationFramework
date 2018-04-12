@@ -7,13 +7,13 @@ This document provides instruction on how to setup this framework on your local 
 
 - Java IDE: [IntelliJ community edition](https://www.jetbrains.com/idea/download/#section=windows)
 - Chrome Plugin: [CSS Selector Helper for Chrome](https://chrome.google.com/webstore/detail/css-selector-helper-for-c/gddgceinofapfodcekopkjjelkbjodin)
-- Git: (https://git-scm.com)
-- Java jdk: (windows64: http://www.oracle.com/technetwork/java/javase/downloads/jdk9-downloads-3848520.html)
+- [Git](https://git-scm.com)
+- Java jdk: [windows64](http://www.oracle.com/technetwork/java/javase/downloads/jdk9-downloads-3848520.html)
 
 
 ## Setup
 
-- Create a folder for your test project and type in the following command in git bash here. 
+- Create a folder for your test project and type in the following command in [git bash here](#markdown-header-git-bash-here). 
   **Please note:** Each account has a unique command since you have to give your username in the command.
   This command can also be found at the top of this bitbucket page.
   You now have the generic test automation framework.
