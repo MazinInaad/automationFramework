@@ -49,8 +49,7 @@ this framework and that the specific files which are for a specific project can 
 the src/test/java/com/project folder (Hereafter referred to as project folder). This folder is ignored in the .gitignore of the
 framework repo. However, the user can place this folder in his own git repo for his/her project.
 
-In the project folder it is best to create subfolders for your feature files (named 'features') and steps (named steps).
-Furthermore, it is good practice to create a folder for your pages.
+The [TA Guidelines](TAGuidelines.pdf) document gives more indepth information on how to setup your own project using this framework.
 
 ## Help
 
