@@ -43,7 +43,7 @@ private final By resultBegintijdSelector = By.cssSelector("[id$=':c3']");
 ```
 - BasePage
 The code example below gives an idea of how one might setup a BasePage. This is just a short example, but you can add as many functions as you want to the BasePage which can be used by all pages which extend it.
-```
+```java
 public class BasePage{
 
 	//By making an object protected it is now accessible by all pages that extend the BasePage
