@@ -1,12 +1,12 @@
 Java Framework for Selenium Webriver with Cucumber
 ==================================================
 
-This document provides instruction on how to setup this framework on your local machine. There is a **Help** section at the bottom to answer the FAQ's. Any suggestions to improve this document are most welcome.
+This document provides instruction on how to setup this framework on your local machine. There is a [**Help**](#markdown-header-help) section at the bottom to answer the FAQ's. Any suggestions to improve this document are most welcome.
 
 ## Download & Install:
 
-- Java IDE: [IntelliJ community edition] (https://www.jetbrains.com/idea/download/#section=windows)
-- Chrome Plugin: [CSS Selector Helper for Chrome] (https://chrome.google.com/webstore/detail/css-selector-helper-for-c/gddgceinofapfodcekopkjjelkbjodin)
+- Java IDE: [IntelliJ community edition](https://www.jetbrains.com/idea/download/#section=windows)
+- Chrome Plugin: [CSS Selector Helper for Chrome](https://chrome.google.com/webstore/detail/css-selector-helper-for-c/gddgceinofapfodcekopkjjelkbjodin)
 - Git: (https://git-scm.com)
 - Java jdk: (windows64: http://www.oracle.com/technetwork/java/javase/downloads/jdk9-downloads-3848520.html)
 
