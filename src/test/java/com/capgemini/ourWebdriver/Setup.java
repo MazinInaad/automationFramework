@@ -9,7 +9,7 @@ public class Setup {
 
     OurWebDriver browser;
 
-    @Before
+    @Before(order = 1)
     public void beforeScenario(Scenario scenario){
         browser = BrowserFactory.getWebDriver();
         browser.manage().window().maximize();
