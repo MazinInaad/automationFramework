@@ -48,6 +48,34 @@ public class OurAssertions {
         return assertEquals(expected, actual, true);
     }
 
+    /**
+     * Custom Assert function which tries the assertNotEquals method from {@link Assert}.
+     * If this fails, the fail location is registered (so that it can be printed later)
+     * and a screenshot is taken.
+     *
+     * @param expected The expected value of the String
+     * @param actual The String to be tested
+     * @see Assert
+     */
+    public static boolean assertNotEquals(String expected, String actual, boolean failTest) {
+        try {
+            Assert.assertNotEquals(expected, actual);
+            return true;
+        } catch (AssertionError e) {
+            String failLocation = getTrace(e.getStackTrace());
+            String errorMessage = getFailHeader(failLocation) + "Strings are equal\nExpected: " + expected + "\nActual: " + actual;
+            failedAssertions.add(errorMessage);
+            OurScenario.takeScreenShot("Assertion_failed_" + failedAssertions.size());
+            assertionFailed = true;
+            if (failTest)
+                Assert.fail("Test has failed due to assertion failure:\n"+errorMessage);
+            return false;
+        }
+    }
+    public static boolean assertNotEquals(String expected, String actual) {
+        return assertNotEquals(expected, actual, true);
+    }
+
 
     /**
      * Custom Assert function which tries the assertEquals method from {@link Assert}.
