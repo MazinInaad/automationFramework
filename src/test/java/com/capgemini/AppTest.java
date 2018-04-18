@@ -1,32 +1,32 @@
 package com.capgemini;
 
-import com.github.mkolisnyk.cucumber.runner.ExtendedCucumber;
-import com.github.mkolisnyk.cucumber.runner.ExtendedCucumberOptions;
+import com.capgemini.ourWebdriver.BrowserFactory;
+import com.cucumber.listener.ExtentProperties;
+import com.cucumber.listener.Reporter;
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * Unit test for simple App.
  */
 
-//@RunWith(Cucumber.class)
-//
-//@CucumberOptions(
-//        features = "src/test/java/com/project/features/",
-//        glue = {"com/project/steps/", "com/capgemini/ourWebdriver/"},
-//        plugin = {"pretty"}
-//)
+@RunWith(Cucumber.class)
 
-@RunWith(ExtendedCucumber.class)
-@ExtendedCucumberOptions(jsonReport = "target/cucumber.json", jsonUsageReport = "target/cucumber-usage.json", outputFolder = "reports/", detailedReport = true, detailedAggregatedReport = false, overviewReport = true, toPDF = false, reportPrefix = "DNA_results_")
 @CucumberOptions(
-        plugin = {"pretty:target/cucumber-pretty.txt", "json:target/cucumber.json", "usage:target/cucumber-usage.json"},
         features = "src/test/java/com/project/features/",
-        glue = {"com/project/steps/", "com/capgemini/ourWebdriver/"}
+        glue = {"com/project/steps/", "com/capgemini/ourWebdriver/"},
+        plugin = {"com.cucumber.listener.ExtentCucumberFormatter:"}
+
 )
 
 public class AppTest extends TestCase {
@@ -54,5 +54,20 @@ public class AppTest extends TestCase {
     public void testApp()
     {
         assertTrue( true );
+    }
+    @BeforeClass
+    public static void setup(){
+        ExtentProperties extentProperties = ExtentProperties.INSTANCE;
+        DateFormat dateFormatter = new SimpleDateFormat("yyyyMMdd_HHmm");
+        String now = dateFormatter.format(new Date());
+        extentProperties.setReportPath("reports/"+now+"_TestResults.html");
+    }
+
+    @AfterClass
+    public static void teardown(){
+        Reporter.setSystemInfo("user", System.getProperty("user.name"));
+        Reporter.setSystemInfo("os", "Windows");
+        Reporter.setSystemInfo("Browser", BrowserFactory.getBrowserType());
+        Reporter.setTestRunnerOutput("Sample test runner output message");
     }
 }

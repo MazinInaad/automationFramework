@@ -1,6 +1,7 @@
 package com.capgemini.resources;
 
 import com.capgemini.ourWebdriver.BrowserFactory;
+import com.cucumber.listener.Reporter;
 import cucumber.api.Scenario;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
@@ -49,7 +50,9 @@ public class OurScenario {
         filename += ".png";
         try {
             File scrFile = ((TakesScreenshot) BrowserFactory.getWebDriver()).getScreenshotAs(OutputType.FILE);
-            FileUtils.copyFile(scrFile, new File(System.getProperty("user.dir") +"\\screenshots\\" + scenarioPath +"\\" + String.format("%02d", screenShotNumber++) + "_" + filename));
+            String screenshotFullNameAndPath = System.getProperty("user.dir") +"\\screenshots\\" + scenarioPath +"\\" + String.format("%02d", screenShotNumber++) + "_" + filename;
+            FileUtils.copyFile(scrFile, new File(screenshotFullNameAndPath));
+            Reporter.addScreenCaptureFromPath(screenshotFullNameAndPath, filename);
         } catch (IOException e) {
             System.out.println("Error occured while trying to save screenshot.");
             e.printStackTrace();

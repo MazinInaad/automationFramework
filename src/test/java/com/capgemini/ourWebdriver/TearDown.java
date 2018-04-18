@@ -5,22 +5,15 @@ import com.capgemini.resources.OurScenario;
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import org.junit.Assert;
-import org.openqa.selenium.WebDriver;
 
-import java.io.IOException;
-import java.net.MalformedURLException;
 
 public class TearDown {
 
-    WebDriver browser;
-
-    public TearDown(){
-        this.browser = BrowserFactory.getWebDriver();
-    }
-
+    OurWebDriver browser;
 
     @After
     public void afterScenario(Scenario scenario) throws InterruptedException{
+        this.browser = BrowserFactory.getWebDriver();
         Thread.sleep(5*1000);
         if(scenario.isFailed()){
             OurScenario.takeScreenShot("TestFail");
