@@ -26,7 +26,6 @@ import java.util.Date;
         features = "src/test/java/com/project/features/",
         glue = {"com/project/steps/", "com/capgemini/ourWebdriver/"},
         plugin = {"com.cucumber.listener.ExtentCucumberFormatter:"}
-
 )
 
 public class AppTest extends TestCase {

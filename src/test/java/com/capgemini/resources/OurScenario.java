@@ -52,7 +52,8 @@ public class OurScenario {
             File scrFile = ((TakesScreenshot) BrowserFactory.getWebDriver()).getScreenshotAs(OutputType.FILE);
             String screenshotFullNameAndPath = System.getProperty("user.dir") +"\\screenshots\\" + scenarioPath +"\\" + String.format("%02d", screenShotNumber++) + "_" + filename;
             FileUtils.copyFile(scrFile, new File(screenshotFullNameAndPath));
-            Reporter.addScreenCaptureFromPath(screenshotFullNameAndPath, filename);
+            if (Reporter.getExtentReport() != null)
+                Reporter.addScreenCaptureFromPath(screenshotFullNameAndPath, filename);
         } catch (IOException e) {
             System.out.println("Error occured while trying to save screenshot.");
             e.printStackTrace();
