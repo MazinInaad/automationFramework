@@ -8,7 +8,7 @@ This document provides instruction on how to setup this framework on your local 
 - Java IDE: [IntelliJ community edition](https://www.jetbrains.com/idea/download/#section=windows)
 - Chrome Plugin: [CSS Selector Helper for Chrome](https://chrome.google.com/webstore/detail/css-selector-helper-for-c/gddgceinofapfodcekopkjjelkbjodin)
 - [Git](https://git-scm.com)
-- Java jdk: [windows64](http://www.oracle.com/technetwork/java/javase/downloads/jdk9-downloads-3848520.html)
+- [Java jdk](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 
 
 ## Setup
