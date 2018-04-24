@@ -10,7 +10,7 @@ import org.openqa.selenium.WebElement;
  */
 public interface OurWebDriver extends WebDriver {
 
-    int IMPLICIT_WAIT_TIMEOUT = 20;
+    int IMPLICIT_WAIT_TIMEOUT = 60;
 
 
     WebElement waitForElement(String selector);
