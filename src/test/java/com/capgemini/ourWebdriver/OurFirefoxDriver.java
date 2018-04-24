@@ -11,7 +11,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
- * Created by dlammers on 2/27/2017.
+ * Created by dlammers on 27/2/2017.
+ * Updated by MInaad on 27/2/2018.
  */
 public class OurFirefoxDriver extends FirefoxDriver implements OurWebDriver {
 

@@ -8,6 +8,9 @@ import cucumber.api.java.Before;
 
 import java.io.UnsupportedEncodingException;
 
+/**
+ * Created by MInaad on 26/2/2018.
+ */
 public class Setup {
 
     OurWebDriver browser;

@@ -6,18 +6,18 @@ import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import org.junit.Assert;
 
-
+/**
+ * Created by MInaad on 26/2/2018.
+ */
 public class TearDown {
 
     OurWebDriver browser;
 
     @After
-    public void afterScenario(Scenario scenario) throws InterruptedException{
-        this.browser = BrowserFactory.getWebDriver();
-        Thread.sleep(5*1000);
+    public void afterScenario(Scenario scenario){
+        browser = BrowserFactory.getWebDriver();
         if(scenario.isFailed()){
             OurScenario.takeScreenShot("TestFail");
-            Thread.sleep(5*1000);
         }
         browser.quit();
 

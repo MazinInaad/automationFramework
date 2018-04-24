@@ -17,7 +17,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- * Unit test for simple App.
+ * Created by MInaad on 17/4/2018.
  */
 
 @RunWith(Cucumber.class)
@@ -25,6 +25,7 @@ import java.util.Date;
 @CucumberOptions(
         features = "src/test/java/com/project/features/",
         glue = {"com/project/steps/", "com/capgemini/ourWebdriver/"},
+//        tags = {"@selectie"},
         plugin = {"com.cucumber.listener.ExtentCucumberFormatter:"}
 )
 
