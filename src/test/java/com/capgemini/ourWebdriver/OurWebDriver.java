@@ -22,13 +22,15 @@ public interface OurWebDriver extends WebDriver {
 
     void waitForAjax();
 
+    void waitForADF();
+
+    void waitForPageLoad();
+
     void waitForAlert();
 
     void waitForInvisible(By by);
 
     void disableAnimation();
-
-    void waitForADF();
 
     WebElement hover(By by);
 

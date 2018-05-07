@@ -59,4 +59,18 @@ public class OurExpectedConditions{
             }
         };
     }
+
+    public static ExpectedCondition<Boolean> documentStateComplete(){
+        return new ExpectedCondition<Boolean>() {
+
+            public Boolean apply(WebDriver driver) {
+                String js =
+                        "return document.readyState;";
+
+                JavascriptExecutor jsDriver = (JavascriptExecutor) driver;
+                Object result = jsDriver.executeScript(js);
+                return result.toString().equals("complete");
+            }
+        };
+    }
 }

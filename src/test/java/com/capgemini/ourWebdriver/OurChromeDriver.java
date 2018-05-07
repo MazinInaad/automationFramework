@@ -2,13 +2,9 @@ package com.capgemini.ourWebdriver;
 
 import com.capgemini.resources.javascripts.OurJavaScripts;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -22,9 +18,6 @@ import java.util.HashMap;
 public class OurChromeDriver extends ChromeDriver implements OurWebDriver {
 
     static OurChromeDriver browser;
-
-    private OurChromeDriver() {
-    }
 
     private OurChromeDriver(ChromeOptions options) {
         super(options);
@@ -68,12 +61,22 @@ public class OurChromeDriver extends ChromeDriver implements OurWebDriver {
     }
 
     public void scrollToElement(WebElement element) {
-        ((JavascriptExecutor) browser).executeScript("arguments[0].scrollIntoView(true);", element);
+        browser.executeScript("arguments[0].scrollIntoView(true);", element);
     }
 
     public void waitForAjax() {
         WebDriverWait webDriverWait = new WebDriverWait(browser, IMPLICIT_WAIT_TIMEOUT);
         webDriverWait.until(OurExpectedConditions.jQueryIsInactive());
+    }
+
+    public void waitForADF(){
+        WebDriverWait wait = new WebDriverWait(browser, IMPLICIT_WAIT_TIMEOUT);
+        wait.until(OurExpectedConditions.clientSyncedWithServer());
+    }
+
+    public void waitForPageLoad() {
+        WebDriverWait wait = new WebDriverWait(browser, IMPLICIT_WAIT_TIMEOUT);
+        wait.until(OurExpectedConditions.documentStateComplete());
     }
 
     public void waitForAlert(){
@@ -88,11 +91,6 @@ public class OurChromeDriver extends ChromeDriver implements OurWebDriver {
 
     public void disableAnimation() {
         browser.executeScript(OurJavaScripts.getDisableAnimationScript());
-    }
-
-    public void waitForADF(){
-        WebDriverWait wait = new WebDriverWait(browser, IMPLICIT_WAIT_TIMEOUT);
-        wait.until(OurExpectedConditions.clientSyncedWithServer());
     }
 
     public WebElement hover(By by) {

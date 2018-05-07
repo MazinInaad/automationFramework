@@ -3,10 +3,8 @@ package com.capgemini.ourWebdriver;
 import com.capgemini.resources.javascripts.OurJavaScripts;
 import org.openqa.selenium.*;
 import org.openqa.selenium.ie.InternetExplorerDriver;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -17,9 +15,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class OurIEDriver extends InternetExplorerDriver implements OurWebDriver {
 
     static OurIEDriver browser;
-
-    private OurIEDriver() {
-    }
 
     private OurIEDriver(Capabilities capabilities){
         super(capabilities);
@@ -59,19 +54,22 @@ public class OurIEDriver extends InternetExplorerDriver implements OurWebDriver 
     }
 
     public void scrollToElement(WebElement element) {
-        ((JavascriptExecutor) browser).executeScript("arguments[0].scrollIntoView(true);", element);
+        browser.executeScript("arguments[0].scrollIntoView(true);", element);
     }
 
     public void waitForAjax() {
         WebDriverWait webDriverWait = new WebDriverWait(browser, IMPLICIT_WAIT_TIMEOUT);
-        webDriverWait.until(new ExpectedCondition<Boolean>() {
-            public Boolean apply(WebDriver driver) {
-                String scriptToExecute =
-                        "return jQuery.active == 0;";
-                Boolean ajaxDone = Boolean.valueOf(((JavascriptExecutor) driver).executeScript(scriptToExecute).toString());
-                return ajaxDone ? true : null;
-            }
-        });
+        webDriverWait.until(OurExpectedConditions.jQueryIsInactive());
+    }
+
+    public void waitForADF(){
+        WebDriverWait wait = new WebDriverWait(browser, IMPLICIT_WAIT_TIMEOUT);
+        wait.until(OurExpectedConditions.clientSyncedWithServer());
+    }
+
+    public void waitForPageLoad() {
+        WebDriverWait wait = new WebDriverWait(browser, IMPLICIT_WAIT_TIMEOUT);
+        wait.until(OurExpectedConditions.documentStateComplete());
     }
 
     public void waitForAlert(){
@@ -86,11 +84,6 @@ public class OurIEDriver extends InternetExplorerDriver implements OurWebDriver 
 
     public void disableAnimation() {
         browser.executeScript(OurJavaScripts.getDisableAnimationScript());
-    }
-
-    public void waitForADF(){
-        WebDriverWait wait = new WebDriverWait(browser, IMPLICIT_WAIT_TIMEOUT);
-        wait.until(OurExpectedConditions.clientSyncedWithServer());
     }
 
     public WebElement hover(By by) {
