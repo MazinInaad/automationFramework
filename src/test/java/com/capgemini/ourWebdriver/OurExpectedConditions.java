@@ -46,4 +46,17 @@ public class OurExpectedConditions{
             }
         };
     }
+
+    public static ExpectedCondition<Boolean> jQueryIsInactive(){
+        return new ExpectedCondition<Boolean>() {
+            public Boolean apply(WebDriver driver) {
+                String js =
+                        "return jQuery.active == 0;";
+
+                JavascriptExecutor jsDriver = (JavascriptExecutor) driver;
+                Object result = jsDriver.executeScript(js);
+                return Boolean.TRUE.equals(result);
+            }
+        };
+    }
 }

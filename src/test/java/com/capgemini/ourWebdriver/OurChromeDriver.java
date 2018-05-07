@@ -73,14 +73,7 @@ public class OurChromeDriver extends ChromeDriver implements OurWebDriver {
 
     public void waitForAjax() {
         WebDriverWait webDriverWait = new WebDriverWait(browser, IMPLICIT_WAIT_TIMEOUT);
-        webDriverWait.until(new ExpectedCondition<Boolean>() {
-            public Boolean apply(WebDriver driver) {
-                String scriptToExecute =
-                        "return jQuery.active == 0;";
-                Boolean ajaxDone = Boolean.valueOf(((JavascriptExecutor) driver).executeScript(scriptToExecute).toString());
-                return ajaxDone ? true : null;
-            }
-        });
+        webDriverWait.until(OurExpectedConditions.jQueryIsInactive());
     }
 
     public void waitForAlert(){
