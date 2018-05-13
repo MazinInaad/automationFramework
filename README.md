@@ -59,14 +59,14 @@ Git Bash can be accessed by right mouse clicking in the folder in which you want
 ### Setting (global) proxy for git
 - Set proxy settings for git (git bash anywhere):
 ```git
-git config --global http.proxy http://@proxy.org.om.local:8080
+git config --global http.proxy http://@<proxyserver>:<port>
 ```  
 
-### Accessing DVOM Bitbucket
-- When cloning a project from the DVOM bitbucket (at the end of the Setup instructions below) the following steps are necessary:
+### Turn off ssl validation
+- Use this only if you are familiar with the project source you are tyring to check out:
 ```git  
 git config --global http.sslVerify false
-git clone <OM Bitbucket repository> .
+git clone <git repository> .
 git config --global --unset http.sslVerify
 git config http.sslVerify false
 ```
