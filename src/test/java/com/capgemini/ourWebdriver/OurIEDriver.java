@@ -21,7 +21,7 @@ public class OurIEDriver extends InternetExplorerDriver implements OurWebDriver 
     }
 
     public static OurIEDriver getBrowser() {
-        System.setProperty("webdriver.ie.driver", System.getProperty("user.dir") + "\\IEDriverServer.exe");
+        System.setProperty("webdriver.ie.driver", System.getProperty("user.dir") + "\\drivers\\IEDriverServer.exe");
         if (browser == null || browser.getSessionId() == null) {
             DesiredCapabilities cap = new DesiredCapabilities();
             cap.setCapability("ie.ensureCleanSession", true);

@@ -21,7 +21,7 @@ public class OurFirefoxDriver extends FirefoxDriver implements OurWebDriver {
     }
 
     public static OurFirefoxDriver getBrowser() {
-        System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir") + "\\geckodriver.exe");
+        System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir") + "\\drivers\\geckodriver.exe");
         if (browser == null || browser.getSessionId() == null) {
             FirefoxProfile profile = new FirefoxProfile();
             profile.setAcceptUntrustedCertificates(true);

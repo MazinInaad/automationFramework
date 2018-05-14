@@ -24,7 +24,7 @@ public class OurChromeDriver extends ChromeDriver implements OurWebDriver {
     }
 
     public static OurChromeDriver getBrowser() {
-        System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "\\drivers\\chromedriver.exe");
         if (browser == null || browser.getSessionId() == null) {
             ChromeOptions chromeOptions = new ChromeOptions();
             if (BrowserFactory.getBrowserType().equals("chrome")) {
