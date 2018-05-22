@@ -7,9 +7,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.util.Map;
 import java.util.HashMap;
+import static com.capgemini.ourWebdriver.BrowserFactory.getDriverFileName;
 
 /**
  * Created by dlammers on 27/2/2017.
@@ -24,7 +24,7 @@ public class OurChromeDriver extends ChromeDriver implements OurWebDriver {
     }
 
     public static OurChromeDriver getBrowser() {
-        System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "\\drivers\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "\\drivers\\"+ getDriverFileName("chromedriver"));
         if (browser == null || browser.getSessionId() == null) {
             ChromeOptions chromeOptions = new ChromeOptions();
             if (BrowserFactory.getBrowserType().equals("chrome")) {

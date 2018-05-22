@@ -1,9 +1,10 @@
 package com.capgemini.ourWebdriver;
 
+import com.capgemini.resources.OurAssertions;
 import com.capgemini.resources.OurScenario;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import org.apache.commons.io.filefilter.WildcardFileFilter;
+
+import java.io.*;
 import java.net.MalformedURLException;
 import java.util.Properties;
 
@@ -40,7 +41,7 @@ public class BrowserFactory {
         else if (browserType.equals("chrome")) {
             OurScenario.setDevice("Desktop");
             browser = OurChromeDriver.getBrowser();
-        } else if (browserType.equals("ie")) {
+        } else if (browserType.equals("ie") || browserType.equals("internet explorer")) {
             OurScenario.setDevice("Desktop");
             browser = OurIEDriver.getBrowser();
 
@@ -79,6 +80,18 @@ public class BrowserFactory {
         return propertyValue;
     }
 
-
+    public static String getDriverFileName(String driverToGet){
+        FileFilter fileFilter = new WildcardFileFilter("*"+driverToGet+"*");
+        File[] dir = new File(".\\drivers\\").listFiles(fileFilter);
+        String driverFileName = "";
+        try {
+            driverFileName = dir[0].getName();
+        }
+        catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("No driver found for '"+driverToGet+"' in the folder drivers.\nStopping execution.");
+            System.exit(1);
+        }
+        return driverFileName;
+    }
 
 }

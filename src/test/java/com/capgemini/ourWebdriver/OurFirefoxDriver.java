@@ -7,6 +7,7 @@ import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import static com.capgemini.ourWebdriver.BrowserFactory.getDriverFileName;
 
 /**
  * Created by dlammers on 27/2/2017.
@@ -21,7 +22,7 @@ public class OurFirefoxDriver extends FirefoxDriver implements OurWebDriver {
     }
 
     public static OurFirefoxDriver getBrowser() {
-        System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir") + "\\drivers\\geckodriver.exe");
+        System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir") + "\\drivers\\"+ getDriverFileName("geckodriver"));
         if (browser == null || browser.getSessionId() == null) {
             FirefoxProfile profile = new FirefoxProfile();
             profile.setAcceptUntrustedCertificates(true);

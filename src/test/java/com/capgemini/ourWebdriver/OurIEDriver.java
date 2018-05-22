@@ -8,6 +8,8 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import static com.capgemini.ourWebdriver.BrowserFactory.getDriverFileName;
+
 /**
  * Created by dlammers on 2/27/2017.
  * Updated by MInaad on 18/01/2018.
@@ -21,7 +23,7 @@ public class OurIEDriver extends InternetExplorerDriver implements OurWebDriver 
     }
 
     public static OurIEDriver getBrowser() {
-        System.setProperty("webdriver.ie.driver", System.getProperty("user.dir") + "\\drivers\\IEDriverServer.exe");
+        System.setProperty("webdriver.ie.driver", System.getProperty("user.dir") + "\\drivers\\"+ getDriverFileName("IEDriver"));
         if (browser == null || browser.getSessionId() == null) {
             DesiredCapabilities cap = new DesiredCapabilities();
             cap.setCapability("ie.ensureCleanSession", true);
