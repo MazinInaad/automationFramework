@@ -15,7 +15,7 @@ This document provides instruction on how to setup this framework on your local 
 
 - Start up IntelliJ
 - Choose 'Check out from Version Control' -> Git
-- Fill in URL "https://bitbucket.org/mazin_inaad/automatedtests.git"
+- Fill in URL "https://github.com/MazinInaad/automationFramework.git"
 - Press Clone
 - When the following pop-up comes up select 'No': 
 
