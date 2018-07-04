@@ -1,6 +1,9 @@
 Java Framework for Selenium Webriver with Cucumber
 ==================================================
 
+This Java Framework contains often used functionalities such as easy screenshots, automatic extent html reporting and custom smartwaits that are often needed for testing webapplications.
+
+
 This document provides instruction on how to setup this framework on your local machine. There is a [**Help**](#markdown-header-help) section at the bottom to answer the FAQ's. Any suggestions to improve this document are most welcome.
 
 ## Download & Install:
