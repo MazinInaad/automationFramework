@@ -33,7 +33,6 @@ This document provides instruction on how to setup this framework on your local 
 - **Important** For the framework to work you also need to have a {environment}.properties file (for example ont.properties) in the folder **project/resources/config** with at least a **url** property.
   For more information see the template in **capgemini/resources/config/template.properties**
   
-  
 ## FrameWork setup
 The framework has been setup such that generic Java classes such as the WebDrivers for 
 different webbrowsers and mobile emulators are in this shared repository. It also has some
@@ -48,6 +47,13 @@ the src/test/java/com/project folder (Hereafter referred to as project folder). 
 framework repo. However, the user can place this folder in his own git repo for his/her project.
 
 The [TA Guidelines](TAGuidelines.md) document gives more indepth information on how to setup your own project using this framework.
+
+## Reporting test results
+Once you have created your features, you can run all the tests from the AppTest class (src/test/java/com/capgemini/AppTests.java).
+This will run all your scenarios and create screenshots in the **screenshots** folder and a nice html report in the **reports** folder.
+
+
+If you only want to run specific testcases, you can add a tag above the scenario name (see [this tutorial on tags](http://toolsqa.com/cucumber/cucumber-tags/) for more information) and edit the commented line ```tags = {"@selectie"},``` in AppTest.java.
 
 ## Help
 
