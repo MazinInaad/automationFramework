@@ -25,7 +25,7 @@ import java.util.Date;
 @CucumberOptions(
         features = "src/test/java/com/project/features/",
         glue = {"com/project/steps/", "com/capgemini/ourWebdriver/"},
-//        tags = {"@selectie"},
+//        tags = {"@selection"},
         plugin = {"com.cucumber.listener.ExtentCucumberFormatter:"}
 )
 
@@ -55,6 +55,7 @@ public class AppTest extends TestCase {
     {
         assertTrue( true );
     }
+
     @BeforeClass
     public static void setup(){
         ExtentProperties extentProperties = ExtentProperties.INSTANCE;

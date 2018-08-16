@@ -25,16 +25,18 @@ This document provides instruction on how to setup this framework on your local 
 ![versioncontrolcheckoutdone](https://user-images.githubusercontent.com/15871496/39982468-bf4640f6-5754-11e8-9c71-2c9970159400.png)   
 
 - In your windows browser, create a pom.xml file from the pom.xml.example file in the main folder. Edit the xml elements on lines 5 and 8 to the name of your project.
+- In IntelliJ, Select 'Open' project and browse to the test project folder you just created and open the folder
 - If it is your first IntelliJ project then in IntelliJ:
-    - Select 'Open' project and browse to the test project folder you just created and open the folder
     - Open project structure (CTRL + Shift + Alt + S), navigate to the 'Project' tab, choose new in Project SDK section, select JDK and direct to your java/jdk folder
     - Open Settings (CTRL + ALT + S), navigate to 'Plugins' and install the plugins: Gherkin and Cucumber for Java
 - Create a browser.properties file from the browser.properties.example file in the main folder. 
-- Browse to the folder: **src/test/java/com/** and create a folder named  **project**. **In this folder you can create a new git for your own project**.
+- **Important** As you can see in browser.properties you can define which environment you want to run the test in.
+  For the framework to work you also need to have a {environment}.properties file (for example ont.properties) in the folder **src/test/config** with at least a **url** property.
+  You can use the **template.properties** file already available in the folder as an example.
+- Browse to the folder: **src/test/java/com/project**. **In this folder you can create a new git for your own project**.
   This is the folder in which the project related Java files will be created. So your
   feature files (folder "features"), steps files (folder "steps"), pages (folder "pages") etc should be in this folder in their own respective subfolders.
-- **Important** For the framework to work you also need to have a {environment}.properties file (for example ont.properties) in the folder **project/resources/config** with at least a **url** property.
-  For more information see the template in **capgemini/resources/config/template.properties**
+
   
 ## FrameWork setup
 The framework has been setup such that generic Java classes such as the WebDrivers for 
@@ -52,11 +54,11 @@ framework repo. However, the user can place this folder in his own git repo for 
 The [TA Guidelines](TAGuidelines.md) document gives more indepth information on how to setup your own project using this framework.
 
 ## Reporting test results
-Once you have created your features, you can run all the tests from the AppTest class (src/test/java/com/capgemini/AppTests.java).
+Once you have created your features, you can run all the tests from the AppTest class (src/test/java/com/project/AppTests.java).
 This will run all your scenarios and create screenshots in the **screenshots** folder and a nice html report in the **reports** folder.
 
 
-If you only want to run specific testcases, you can add a tag above the scenario name (see [this tutorial on tags](http://toolsqa.com/cucumber/cucumber-tags/) for more information) and edit the commented line ```tags = {"@selectie"},``` in AppTest.java.
+If you only want to run specific testcases, you can add a tag above the scenario name (see [this tutorial on tags](http://toolsqa.com/cucumber/cucumber-tags/) for more information) and edit the commented line ```tags = {"@selection"},``` in AppTest.java.
 
 ## Help
 
