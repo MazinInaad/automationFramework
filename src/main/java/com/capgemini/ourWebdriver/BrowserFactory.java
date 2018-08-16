@@ -1,11 +1,9 @@
 package com.capgemini.ourWebdriver;
 
-import com.capgemini.resources.OurAssertions;
-import com.capgemini.resources.OurScenario;
+import com.capgemini.resources.scenario.OurScenario;
 import org.apache.commons.io.filefilter.WildcardFileFilter;
 
 import java.io.*;
-import java.net.MalformedURLException;
 import java.util.Properties;
 
 /**

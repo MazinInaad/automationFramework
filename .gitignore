@@ -2,6 +2,7 @@
 *.class
 screenshots/
 src/test/java/com/project/*
+src/test/config/*
 browser.properties
 .svn
 *.iml

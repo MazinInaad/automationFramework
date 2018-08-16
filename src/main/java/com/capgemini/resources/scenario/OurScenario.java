@@ -1,6 +1,7 @@
-package com.capgemini.resources;
+package com.capgemini.resources.scenario;
 
 import com.capgemini.ourWebdriver.BrowserFactory;
+import com.capgemini.resources.assertions.OurAssertions;
 import com.cucumber.listener.Reporter;
 import cucumber.api.Scenario;
 import org.apache.commons.io.FileUtils;

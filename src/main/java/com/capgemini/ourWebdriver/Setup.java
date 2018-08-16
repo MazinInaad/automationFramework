@@ -1,12 +1,9 @@
 package com.capgemini.ourWebdriver;
 
-import com.capgemini.resources.OurScenario;
+import com.capgemini.resources.scenario.OurScenario;
 import com.capgemini.resources.config.ConfigReader;
-import com.cucumber.listener.Reporter;
 import cucumber.api.Scenario;
 import cucumber.api.java.Before;
-
-import java.io.UnsupportedEncodingException;
 
 /**
  * Created by MInaad on 26/2/2018.

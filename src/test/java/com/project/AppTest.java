@@ -1,4 +1,4 @@
-package com.capgemini;
+package com.project;
 
 import com.capgemini.ourWebdriver.BrowserFactory;
 import com.cucumber.listener.ExtentProperties;

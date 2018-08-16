@@ -1,7 +1,8 @@
-package com.capgemini.resources;
+package com.capgemini.resources.assertions;
 
 
 import com.capgemini.ourWebdriver.OurWebDriver;
+import com.capgemini.resources.scenario.OurScenario;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 

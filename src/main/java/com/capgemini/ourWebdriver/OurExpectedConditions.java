@@ -1,6 +1,6 @@
 package com.capgemini.ourWebdriver;
 
-import com.capgemini.resources.OurAssertions;
+import com.capgemini.resources.assertions.OurAssertions;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 

@@ -23,7 +23,7 @@ public class ConfigReader {
         String propertyValue = null;
 
         try {
-            input = new FileInputStream(System.getProperty("user.dir") +"\\src\\test\\java\\com\\project\\resources\\config\\" + BrowserFactory.getEnvironment() +".properties");
+            input = new FileInputStream(System.getProperty("user.dir") +"\\src\\test\\config\\" + BrowserFactory.getEnvironment() +".properties");
             prop.load(input);
             propertyValue = prop.getProperty(propertyToGet);
         } catch (IOException e) {

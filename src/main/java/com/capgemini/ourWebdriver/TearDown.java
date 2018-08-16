@@ -1,7 +1,7 @@
 package com.capgemini.ourWebdriver;
 
-import com.capgemini.resources.OurAssertions;
-import com.capgemini.resources.OurScenario;
+import com.capgemini.resources.assertions.OurAssertions;
+import com.capgemini.resources.scenario.OurScenario;
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import org.junit.Assert;

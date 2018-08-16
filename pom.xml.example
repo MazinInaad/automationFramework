@@ -12,12 +12,10 @@
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <version>4.11</version>
-      <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>info.cukes</groupId>
       <artifactId>cucumber-java</artifactId>
-      <scope>test</scope>
       <version>1.2.5</version>
     </dependency>
     <dependency>
@@ -70,7 +68,6 @@
 		<groupId>info.cukes</groupId>
 		<artifactId>cucumber-junit</artifactId>
 		<version>1.2.5</version>
-		<scope>test</scope>
 	</dependency>
     <dependency>
       <groupId>com.vimalselvam</groupId>
@@ -81,7 +78,6 @@
       <groupId>com.aventstack</groupId>
       <artifactId>extentreports</artifactId>
       <version>3.1.5</version>
-      <scope>provided</scope>
     </dependency>
   </dependencies>
 </project>
