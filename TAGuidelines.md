@@ -13,7 +13,7 @@ The project folder should contain the folders:
  - [pages](#markdown-header-pages)
  - resources
 
-As the content of the *project* folder suggests, the automated test has different levels: feature level, step level and page level. The *resources* folder contains the configuration files (subfolder *config*) and the objects/data types to help run the test. The following figure gives a summary of the different levels, where feature files are the highest level and pages are the lowest level.
+As the content of the *project* folder suggests, the automated test has different levels: feature level, step level and page level. The *resources* folder contains the objects/data types to help run the test. The following figure gives a summary of the different levels, where feature files are the highest level and pages are the lowest level.
 
 ![architecture](https://user-images.githubusercontent.com/15871496/38661816-68444784-3e32-11e8-80f3-48dc68bf1423.png)
 
