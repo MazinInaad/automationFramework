@@ -29,6 +29,7 @@ public class OurChromeDriver extends ChromeDriver implements OurWebDriver {
             ChromeOptions chromeOptions = new ChromeOptions();
             if (BrowserFactory.getBrowserType().equals("chrome")) {
                 chromeOptions.addArguments("incognito");
+                chromeOptions.addArguments("start-maximized");
             }
             else {
                 Map<String, String> mobileEmulation = new HashMap<String, String>();
